@@ -22,6 +22,7 @@
     };
     unsafeWindow.history.pushState = _wr('pushState');
     unsafeWindow.history.replaceState = _wr('replaceState');
+    unsafeWindow.onpopstate = onNavigation;
 
     const clashPageRegex = /^\/clashofcode\/clash\/([0-9a-f]{32,})$/;
 
