@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Better Clash of Code
 // @namespace https://www.codingame.com/
-// @version 0.1
+// @version 0.2
 // @author terazoid
 // @match https://www.codingame.com/*
 // @grant unsafeWindow
@@ -22,7 +22,6 @@
     };
     unsafeWindow.history.pushState = _wr('pushState');
     unsafeWindow.history.replaceState = _wr('replaceState');
-    unsafeWindow.onpopstate = onNavigation;
 
     const clashPageRegex = /^\/clashofcode\/clash\/([0-9a-f]{32,})$/;
 
@@ -60,6 +59,7 @@
             console.error(err);
         }
     };
+    unsafeWindow.onpopstate = onNavigation;
     unsafeWindow.addEventListener('pushState', onNavigation);
     unsafeWindow.addEventListener('replaceState', onNavigation);
 
